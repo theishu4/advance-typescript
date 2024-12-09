@@ -12,7 +12,7 @@ class TypeSafeStringMap<TMap extends Record<string, string> = {}> {
 
   set<K extends string>(
     key: K,
-    value: string,
+    value: string
   ): TypeSafeStringMap<TMap & Record<K, string>> {
     (this.map[key] as any) = value;
 
@@ -25,10 +25,12 @@ const map = new TypeSafeStringMap()
   .set("jools", "holland")
   .set("brandi", "carlile");
 
+map.set("ishu", "modanwal");
+
 it("Should not allow getting values which do not exist", () => {
   map.get(
     // @ts-expect-error
-    "jim",
+    "jim"
   );
 });
 
@@ -36,4 +38,6 @@ it("Should return values from keys which do exist", () => {
   expect(map.get("matt")).toBe("pocock");
   expect(map.get("jools")).toBe("holland");
   expect(map.get("brandi")).toBe("carlile");
+  expect(map.get("ishu")).toBe("modanwal");
+  // 👆 if true then get should except string in addition to inferred key.
 });

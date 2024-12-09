@@ -2,17 +2,13 @@ import { isBodyElement, isDivElement } from "fake-external-lib";
 import { it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-/**
- * By changing the type definition of this interface,
- * you can fix all the errors below.
- */
 interface DOMNodeExtractorConfig<T, Result> {
   isNode: (node: unknown) => boolean;
   transform: (node: T) => Result;
 }
 
 const createDOMNodeExtractor = <T, TResult>(
-  config: DOMNodeExtractorConfig<T, TResult>,
+  config: DOMNodeExtractorConfig<T, TResult>
 ) => {
   return (nodes: unknown[]): TResult[] => {
     return nodes.filter(config.isNode).map(config.transform);
