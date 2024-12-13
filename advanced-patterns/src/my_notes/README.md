@@ -31,8 +31,7 @@
 18. 💎❓ Dive into Classes with Type Predicates
 19. Assertion Functions and Classes
 20. Class Implementation Following the Builder Pattern Explanation
-21. 👇Create a Type Safe Map with the Builder Pattern
-<!-- Go to -> src\04-classes\20-type-safe-map.solution.ts -->
+21. Create a Type Safe Map with the Builder Pattern
 22. Importance of default generic
 23. Building Chainable Middleware with the Builder Pattern
 
